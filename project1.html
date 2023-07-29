@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Interactive Quiz Game</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      background-color: #181817;
+    }
+
+    h1 {
+      margin: 20px 0;
+      color: #f4f5fc2d;
+    }
+
+    .quiz-container {
+      max-width: 600px;
+      margin: 0 auto;
+      border: 2px solid hsl(245, 66%, 27%);
+      border-radius: 10px;
+      padding: 20px;
+      background-color: hsl(60, 18%, 92%);
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    .question {
+      font-weight: bold;
+      margin-bottom: 10px;
+      padding: 10px;
+      border-radius: 5px;
+      background-color: hwb(50 12% 20%);
+    }
+
+    .options label {
+      display: block;
+      margin-bottom: 5px;
+      cursor: pointer;
+    }
+
+    .submit-btn {
+      margin-top: 20px;
+      background-color: hwb(12 12% 30%);
+      color: hsl(0, 8%, 97%);
+      border: none;
+      padding: 10px 20px;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 16px;
+      transition: background-color 0.2s ease;
+    }
+
+    .submit-btn:hover {
+      background-color: #c72c48;
+    }
+
+    .result {
+      font-weight: bold;
+      margin-top: 20px;
+      color: hsl(0, 5%, 4%);
+      font-size: 20px;
+    }
+  </style>
+</head>
+<body>
+  <h1>Interactive Quiz Game</h1>
+  <div class="quiz-container">
+    <form id="quiz-form">
+      <div class="question">
+        1. What is the capital of France?
+      </div>
+      <div class="options">
+        <label>
+          <input type="radio" name="q1" value="a"> a) London
+        </label>
+        <label>
+          <input type="radio" name="q1" value="b"> b) Paris
+        </label>
+        <label>
+          <input type="radio" name="q1" value="c"> c) Berlin
+        </label>
+      </div>
+
+      <div class="question">
+        2. Which planet is known as the Red Planet?
+      </div>
+      <div class="options">
+        <label>
+          <input type="radio" name="q2" value="a"> a) Venus
+        </label>
+        <label>
+          <input type="radio" name="q2" value="b"> b) Mars
+        </label>
+        <label>
+          <input type="radio" name="q2" value="c"> c) Jupiter
+        </label>
+      </div>
+
+      <div class="question">
+        3. What is the chemical symbol for water?
+      </div>
+      <div class="options">
+        <label>
+          <input type="radio" name="q3" value="a"> a) O2
+        </label>
+        <label>
+          <input type="radio" name="q3" value="b"> b) H2O
+        </label>
+        <label>
+          <input type="radio" name="q3" value="c"> c) CO2
+        </label>
+      </div>
+
+      <div class="question">
+        4. Which country hosted the 2016 Summer Olympics?
+      </div>
+      <div class="options">
+        <label>
+          <input type="radio" name="q4" value="a"> a) Brazil
+        </label>
+        <label>
+          <input type="radio" name="q4" value="b"> b) USA
+        </label>
+        <label>
+          <input type="radio" name="q4" value="c"> c) Japan
+        </label>
+      </div>
+
+      <div class="question">
+        5. Who wrote the play "Romeo and Juliet"?
+      </div>
+      <div class="options">
+        <label>
+          <input type="radio" name="q5" value="a"> a) William Shakespeare
+        </label>
+        <label>
+          <input type="radio" name="q5" value="b"> b) Jane Austen
+        </label>
+        <label>
+          <input type="radio" name="q5" value="c"> c) Charles Dickens
+        </label>
+      </div>
+
+      <input type="submit" class="submit-btn" value="Submit">
+    </form>
+
+    <div class="result" id="quiz-result"></div>
+
+    <script>
+      document.getElementById('quiz-form').addEventListener('submit', function(event) {
+        event.preventDefault();
+
+        const answers = ['b', 'b', 'b', 'a', 'a']; // Replace with correct answers for each question
+
+        let score = 0;
+        const formData = new FormData(event.target);
+        for (let i = 1; i <= 5; i++) {
+          const userAnswer = formData.get(`q${i}`);
+          if (userAnswer === answers[i - 1]) {
+            score++;
+          }
+        }
+
+        const resultElement = document.getElementById('quiz-result');
+        resultElement.textContent = `You scored ${score} out of 5.`;
+      });
+    </script>
+  </body>
+</html>
+
+    
+    
+    
+    
+    
+    
+    
+
+
+
+
+
+
